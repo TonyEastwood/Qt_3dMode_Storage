@@ -59,7 +59,7 @@ Form_Log_In::~Form_Log_In()
 
 void Form_Log_In::on_butt_submit_clicked()
 {
-         OpenMainForm(0,0);                 //TEEEEEEEEEST DELETE
+         OpenMainForm(3,5);                 //TEEEEEEEEEST DELETE
 
         int id{0}, quant_obj{0};                                            //id and quant_obj of username
 
