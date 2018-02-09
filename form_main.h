@@ -3,8 +3,9 @@
 
 #include <QDialog>
 #include <QtSql>
-#include <QMessageBox>
 #include <QtCore>
+#include <QMessageBox>
+
 #include "form_add_object.h"
 namespace Ui {
 class Form_main;
@@ -30,7 +31,6 @@ signals:
     void ComboBoxUpdateSignal();
     void remove_click();                                    //if delete object, Update comboBox and lcdNumeric (decrease quantity)
 private slots:
-    void Change_Name_Object();                              //Display object name
     void ComboBoxUpdate();                                  //Update values of combobox
     void DisplayCountObject();                              //Update quantity objects in lcdNumeric
     void on_butt_remove_clicked();                          //remove selected object
