@@ -5,7 +5,7 @@
 #include <QtSql>
 #include <QtCore>
 #include <QMessageBox>
-
+#include "form_3dmodelshow.h"
 #include "form_add_object.h"
 namespace Ui {
 class Form_main;
@@ -38,7 +38,10 @@ private slots:
 
     void on_combo_objectlist_activated();
 
+    void on_butt_show_clicked();
+
 private:
+    form_3dmodelshow *Form_3dModel;
     Form_Add_Object *Form_Add;
     QSqlDatabase *db= new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"));   //connect to QPSQL;
     int id=0;                                           //user id

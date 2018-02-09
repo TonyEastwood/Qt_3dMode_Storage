@@ -148,3 +148,9 @@ void Form_main::on_combo_objectlist_activated()
          query.next();                                             //parse all data that we get from query
         ui->label_name_object->setText(query.value(0).toString());
 }
+
+void Form_main::on_butt_show_clicked()
+{
+    Form_3dModel = new form_3dmodelshow;                         //create new form for add new Object
+    Form_3dModel->show();
+}

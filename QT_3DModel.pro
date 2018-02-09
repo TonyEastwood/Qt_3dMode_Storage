@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui opengl
 QT       +=sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,16 +27,21 @@ SOURCES += \
         main.cpp \
         form_log_in.cpp \
     form_main.cpp \
-    form_add_object.cpp
+    form_add_object.cpp \
+    form_3dmodelshow.cpp \
+    openglshow.cpp
 
 HEADERS += \
         form_log_in.h \
     form_main.h \
-    form_add_object.h
+    form_add_object.h \
+    form_3dmodelshow.h \
+    openglshow.h
 
 FORMS += \
         form_log_in.ui \
     form_main.ui \
-    form_add_object.ui
+    form_add_object.ui \
+    form_3dmodelshow.ui
 
 DISTFILES +=
