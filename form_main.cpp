@@ -19,7 +19,7 @@ Form_main::Form_main(int _id): QDialog(0),
     DisplayCountObject();                                       //Show count objects
     connect(this,SIGNAL(remove_click()),SLOT(ComboBoxUpdate()));                //link signal remove and Update ComboBox
     connect(this,SIGNAL(remove_click()),SLOT(DisplayCountObject()));            //link ....
-
+    connect(this,SIGNAL(ComboBoxUpdateSignal()),SLOT(on_combo_objectlist_activated()));
 
 
 }
@@ -68,6 +68,13 @@ void Form_main::ErrorRemove()
     Msgbox.exec();
 }
 
+void Form_main::Change_Name_Object()
+{
+
+
+
+}
+
 void Form_main::DisplayCountObject()
 {
 
@@ -81,7 +88,11 @@ void Form_main::DisplayCountObject()
            {
                query.next();
                   ui->lcdNumber->display(query.value(0).toString());        //Show quntity objects that have current user
+                        emit ComboBoxUpdateSignal();
                }
+
+
+
 }
 
 
@@ -89,18 +100,23 @@ void Form_main::ComboBoxUpdate()
 {
     ui->combo_objectlist->clear();
 
-       QSqlQuery query(*db);                                                //link query with database
+         QSqlQuery query(*db);                                                //link query with database
 
 
-           if(!query.exec("SELECT id FROM model_user WHERE user_id="+QString::number(id)+";"))         //create query to database
-              ErrorQuery();
-           else
-           {
-           while (query.next()) {                                               //parse all data that we get from query
-                                            //assign id = id user from database
-                    ui->combo_objectlist->addItem(query.value(0).toString());
-               }
-    }
+             if(!query.exec("SELECT id FROM model_user WHERE user_id="+QString::number(id)+";"))         //create query to database
+                ErrorQuery();
+             else
+             {
+             while (query.next()) {                                               //parse all data that we get from query
+                                              //assign id = id user from database
+                      ui->combo_objectlist->addItem(query.value(0).toString());
+                 }
+
+
+
+
+      }
+             emit ComboBoxUpdateSignal();
 }
 
 void Form_main::on_butt_remove_clicked()
@@ -124,4 +140,16 @@ void Form_main::on_butt_create_clicked()
     Form_Add = new Form_Add_Object(id);
     Form_Add->show();
 
+}
+
+void Form_main::on_combo_objectlist_activated()
+{
+    QSqlQuery query(*db);                                                //link query with database
+
+
+       if(!query.exec("SELECT name_model FROM model_user WHERE id="+ ui->combo_objectlist->currentText()+";"))         //create query to database
+           ErrorQuery();
+         query.next();                                             //parse all data that we get from query
+
+                               ui->label_name_object->setText(query.value(0).toString());
 }
