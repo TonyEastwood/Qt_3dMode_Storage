@@ -16,14 +16,15 @@ bool Form_Log_In::SetValueDataBase(QSqlDatabase * db, QString BaseName, QString 
     else return true;
 }
 
-void Form_Log_In::OpenMainForm(int _id, int _quant)
+void Form_Log_In::OpenMainForm(int _id)
 {
     QMessageBox Msgbox;
     Msgbox.setWindowTitle("Log in success!");                                //show message succes log in
     Msgbox.setText(QString::number(_id)+"Wait for loading data...");
     Msgbox.exec();
-    Main_Form = new Form_main(_id, _quant);
+    Main_Form = new Form_main(_id);
     Main_Form->show();
+
     this->close();
 }
 
@@ -59,9 +60,9 @@ Form_Log_In::~Form_Log_In()
 
 void Form_Log_In::on_butt_submit_clicked()
 {
-         OpenMainForm(3,5);                 //TEEEEEEEEEST DELETE
+         OpenMainForm(2);                 //TEEEEEEEEEST DELETE
 
-        int id{0}, quant_obj{0};                                            //id and quant_obj of username
+        int id=0;                                            //id and quant_obj of username
 
         QSqlDatabase* db= new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"));   //connect to QPSQL
 
@@ -71,17 +72,19 @@ void Form_Log_In::on_butt_submit_clicked()
         {
            QSqlQuery query(*db);                                                //link query with database
 
-               if(!query.exec("SELECT id, quant_obj FROM users WHERE login='"+ui->edit_username->text()+"' AND password='"+ui->edit_password->text()+"';"))         //create query to database
+               if(!query.exec("SELECT id FROM users WHERE login='"+ui->edit_username->text()+"' AND password='"+ui->edit_password->text()+"';"))         //create query to database
                   ErrorQuery();
                else
                {
                while (query.next()) {                                               //parse all data that we get from query
-                       id = query.value(0).toInt();                                 //assign id = id user from database
-                       quant_obj = query.value(1).toInt();                          //assign quant_obj = quantity obj users
+                       id = query.value(0).toInt();                                 //assign id = id user from databas
                    }
 
                 if(id!=0)                                                       //if log in success
-                    OpenMainForm(id,quant_obj);                 //open MainForm and betray id and quant object
+                {
+                    db->close();
+                    OpenMainForm(id);                 //open MainForm and betray id and quant object
+                }
                 else Error_LogIn();                           //show Error
 
             }

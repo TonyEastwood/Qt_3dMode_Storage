@@ -15,7 +15,7 @@ class Form_Log_In : public QDialog
     Q_OBJECT
 private:
     bool SetValueDataBase(QSqlDatabase* db, QString BaseName, QString HostName, int port, QString login, QString pass);
-    void OpenMainForm(int _id, int _quant);
+    void OpenMainForm(int _id);
     void Error_LogIn();
     void ErrorQuery();
 public:

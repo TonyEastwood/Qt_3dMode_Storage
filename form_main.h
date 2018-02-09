@@ -15,13 +15,21 @@ class Form_main : public QDialog
 
 public:
     explicit Form_main(QWidget *parent = 0);
-    Form_main(int _id, int _quant);
+    Form_main(int _id);
     ~Form_main();
 private:
-    bool SetValueDataBase(QString BaseName, QString HostName, int port, QString login, QString pass);
+    void SetValueDataBase(QString BaseName, QString HostName, int port, QString login, QString pass);
     void ErrorQuery();
+    void MessageSuccessRemove();
+    void ErrorRemove();
+
+signals:
+    void remove_click();
 private slots:
     void on_pushButton_clicked();
+    void ComboBoxUpdate();
+    void DisplayCountObject();
+    void on_butt_remove_clicked();
 
 private:
     QSqlDatabase *db= new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"));   //connect to QPSQL;
