@@ -13,12 +13,12 @@ Form_main::Form_main(int _id): QDialog(0),
 {
 
     ui->setupUi(this);
-    this->id=_id;
+    this->id=_id;                                                           //get id from Log In Form and assign it
     SetValueDataBase("base2","localhost",5432,"lolka", "cfyz,kj");  //set value to database
-    ComboBoxUpdate();
-    DisplayCountObject();
-    connect(this,SIGNAL(remove_click()),SLOT(ComboBoxUpdate()));
-    connect(this,SIGNAL(remove_click()),SLOT(DisplayCountObject()));
+    ComboBoxUpdate();                                           //Update ComboBox (show all objects)
+    DisplayCountObject();                                       //Show count objects
+    connect(this,SIGNAL(remove_click()),SLOT(ComboBoxUpdate()));                //link signal remove and Update ComboBox
+    connect(this,SIGNAL(remove_click()),SLOT(DisplayCountObject()));            //link ....
 
 
 
@@ -35,7 +35,7 @@ void Form_main::SetValueDataBase(QString BaseName, QString HostName, int port, Q
     db->setDatabaseName(BaseName);                                         //set data base name
     db->setHostName(HostName);                                         //set database host
     db->setPort(port);                                                    //set port
-    if (!db->open(login, pass)) {
+    if (!db->open(login, pass)) {                                           //if error till we open
         Msgbox.setWindowTitle("Error open database");                    //show error open database
         Msgbox.setText("Invalid username or password");
         Msgbox.exec();
@@ -75,32 +75,15 @@ void Form_main::DisplayCountObject()
        QSqlQuery query(*db);                                                //link query with database
 
 
-           if(!query.exec("SELECT COUNT(*) FROM model_user WHERE user_id="+QString::number(id)+";"))         //create query to database
+           if(!query.exec("SELECT COUNT(*) FROM model_user WHERE user_id="+QString::number(id)+";"))         //count quantity objects that have current user
               ErrorQuery();
            else
            {
                query.next();
-                  ui->lcdNumber->display(query.value(0).toString());
-                    //ui->combo_objectlist->addItem();
+                  ui->lcdNumber->display(query.value(0).toString());        //Show quntity objects that have current user
                }
-
-
-
-
-
 }
 
-
-
-void Form_main::on_pushButton_clicked()
-{
-
-/*
-    ui->combo_objectlist->addItem(QString::number(5));
-    ui->lcdNumber->display(quant);
-    ui->lcdNumber->setPalette(Qt::blue);
-*/
-}
 
 void Form_main::ComboBoxUpdate()
 {
@@ -117,10 +100,6 @@ void Form_main::ComboBoxUpdate()
                                             //assign id = id user from database
                     ui->combo_objectlist->addItem(query.value(0).toString());
                }
-
-
-
-
     }
 }
 
@@ -138,5 +117,11 @@ void Form_main::on_butt_remove_clicked()
         MessageSuccessRemove();
         }
 
+}
+
+void Form_main::on_butt_create_clicked()
+{
+    Form_Add = new Form_Add_Object(id);
+    Form_Add->show();
 
 }

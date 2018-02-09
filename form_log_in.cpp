@@ -20,7 +20,7 @@ void Form_Log_In::OpenMainForm(int _id)
 {
     QMessageBox Msgbox;
     Msgbox.setWindowTitle("Log in success!");                                //show message succes log in
-    Msgbox.setText(QString::number(_id)+"Wait for loading data...");
+    Msgbox.setText("Wait for loading data...");
     Msgbox.exec();
     Main_Form = new Form_main(_id);
     Main_Form->show();
@@ -60,7 +60,7 @@ Form_Log_In::~Form_Log_In()
 
 void Form_Log_In::on_butt_submit_clicked()
 {
-         OpenMainForm(2);                 //TEEEEEEEEEST DELETE
+        OpenMainForm(2);                 //TEEEEEEEEEST DELETE
 
         int id=0;                                            //id and quant_obj of username
 

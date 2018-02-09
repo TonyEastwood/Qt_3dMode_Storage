@@ -5,6 +5,7 @@
 #include <QtSql>
 #include <QMessageBox>
 #include <QtCore>
+#include "form_add_object.h"
 namespace Ui {
 class Form_main;
 }
@@ -19,22 +20,22 @@ public:
     ~Form_main();
 private:
     void SetValueDataBase(QString BaseName, QString HostName, int port, QString login, QString pass);
-    void ErrorQuery();
-    void MessageSuccessRemove();
-    void ErrorRemove();
+    void ErrorQuery();                                      //show error till try to send query to database
+    void MessageSuccessRemove();                            //show message if removed success
+    void ErrorRemove();                                     //show error if remove error
 
 signals:
-    void remove_click();
+    void remove_click();                                    //if delete object, Update comboBox and lcdNumeric (decrease quantity)
 private slots:
-    void on_pushButton_clicked();
-    void ComboBoxUpdate();
-    void DisplayCountObject();
-    void on_butt_remove_clicked();
+    void ComboBoxUpdate();                                  //Update values of combobox
+    void DisplayCountObject();                              //Update quantity objects in lcdNumeric
+    void on_butt_remove_clicked();                          //remove selected object
+    void on_butt_create_clicked();                          //open new form for create 3d object
 
 private:
+    Form_Add_Object *Form_Add;
     QSqlDatabase *db= new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"));   //connect to QPSQL;
-    int quant=0;                                        //quant object current user
-    int id=0;                                           //id user
+    int id=0;                                           //user id
     Ui::Form_main *ui;
 };
 

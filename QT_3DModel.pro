@@ -26,14 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         form_log_in.cpp \
-    form_main.cpp
+    form_main.cpp \
+    form_add_object.cpp
 
 HEADERS += \
         form_log_in.h \
-    form_main.h
+    form_main.h \
+    form_add_object.h
 
 FORMS += \
         form_log_in.ui \
-    form_main.ui
+    form_main.ui \
+    form_add_object.ui
 
 DISTFILES +=
