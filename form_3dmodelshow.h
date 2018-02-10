@@ -13,10 +13,17 @@ class form_3dmodelshow : public QDialog
 
 public:
     explicit form_3dmodelshow(QWidget *parent = 0);
+    form_3dmodelshow(std::vector<std::vector<double> > vector_3d);
     ~form_3dmodelshow();
 protected:
     void mousePressEvent(QMouseEvent *event) override;
       void mouseMoveEvent(QMouseEvent *event) override;
+private slots:
+
+      void on_pushButton_clicked();
+
+      void on_pushButton_2_clicked();
+
 private:
       double x_pos;
       double y_pos;

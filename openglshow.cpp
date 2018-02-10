@@ -5,6 +5,8 @@ OpenGlShow::OpenGlShow(QWidget *parent) : QOpenGLWidget(parent)
 
 }
 
+
+
 void OpenGlShow::initializeGL()
 {
     initializeOpenGLFunctions();
@@ -19,7 +21,7 @@ void OpenGlShow::resizeGL(int w, int h)
     glMatrixMode(GL_PROJECTION);
        glLoadIdentity();
 
-            glOrtho(-10.0, 10.0, -10.0, 10.0, -3, 3);
+            glOrtho(-3.0, 3.0, -3.0, 3.0, -10, 10);
 
 
     //   glOrtho();
@@ -41,6 +43,12 @@ void OpenGlShow::paintGL()
     // Resetear transformaciones
     glLoadIdentity();
 
+
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(-scale_x, scale_x, -scale_y, scale_y, -scale_z, scale_z);
+
     // Otras transformaciones
     // glTranslatef( 0.1, 0.0, 0.0 );      // No incluido
     // glRotatef( 180, 0.0, 1.0, 0.0 );    // No incluido
@@ -50,20 +58,24 @@ void OpenGlShow::paintGL()
     glRotatef( rotate_y, 0.0, 1.0, 0.0 );
     glRotatef( rotate_z, 0.0, 0.0, 1.0 );
 
+
+
     ////////////LINE
-   /* glLineWidth(1);       // ширину линии
+    glLineWidth(1);       // ширину линии
                           // устанавливаем 1
      glBegin(GL_LINES);
-      glColor3d(1,0,0);     // красный цвет
-      glVertex3d(0,0,0); // первая линия
-      glVertex3d(1,1,1);
-      glColor3d(0,1,0);     // зеленый
-      glVertex3d(1,1,1); // вторая линия
-      glVertex3d(2,2,2);
-     glEnd();*/
+    glColor3d(0,1,1);     // красный цвет
+      for(auto i:vector_3d)
+      {
+
+          glVertex3d(i[0],i[1],i[2]); // первая линия
+          glVertex3d(i[3],i[4],i[5]);
+      }
+
+     glEnd();
 
     //////////////LINE
-
+/*
     std::vector<std::vector<double> > vector_3d(4, std::vector<double>(3));
     vector_3d[0][0]=1;
     vector_3d[0][1]=1;
@@ -81,10 +93,10 @@ void OpenGlShow::paintGL()
     vector_3d[3][1]=2;
     vector_3d[3][2]=2;
 
-
+*/
 //for(int i=0;i<4;i++)
  // vector_3d.push_back(new std::vector<double>(3));
-
+/*
     glPointSize(10);
     glEnable(GL_POINT_SMOOTH);                //делает точки круглыми, а не квадратными
     glBegin(GL_POINTS);
@@ -97,7 +109,7 @@ void OpenGlShow::paintGL()
     glEnd();
     glDisable(GL_POINT_SMOOTH);               //в конце отключаем сглаживание
 
-
+*/
 
 
 
@@ -111,8 +123,5 @@ void OpenGlShow::paintGL()
 
 }
 
-void OpenGlShow::graficarLineas()
-{
 
-}
 

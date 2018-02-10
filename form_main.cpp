@@ -68,6 +68,27 @@ void Form_main::ErrorRemove()
     Msgbox.exec();
 }
 
+void Form_main::SetVectorValue()
+{
+    QSqlQuery query(*db);                                                //link query with database
+
+
+        if(!query.exec("SELECT x,y,z,x2,y2,z2 FROM object_points WHERE id_object="+ui->combo_objectlist->currentText()+";"))         //create query to database
+           ErrorQuery();
+        else
+        {
+        while (query.next()) {                                               //parse all data that we get from query
+                                         //assign id = id user from database
+                 //ui->combo_objectlist->addItem(query.value(0).toString());
+                 _vector_3d.push_back({query.value(0).toFloat(),query.value(1).toFloat(),query.value(2).toFloat(),query.value(3).toFloat(),query.value(4).toFloat(),query.value(5).toFloat()});
+            }
+
+
+
+
+ }
+}
+
 
 
 void Form_main::DisplayCountObject()
@@ -151,6 +172,7 @@ void Form_main::on_combo_objectlist_activated()
 
 void Form_main::on_butt_show_clicked()
 {
-    Form_3dModel = new form_3dmodelshow;                         //create new form for add new Object
+    SetVectorValue();
+    Form_3dModel = new form_3dmodelshow(_vector_3d);                         //create new form for add new Object
     Form_3dModel->show();
 }

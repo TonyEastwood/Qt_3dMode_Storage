@@ -24,7 +24,7 @@ private:
     void ErrorQuery();                                      //show error till try to send query to database
     void MessageSuccessRemove();                            //show message if removed success
     void ErrorRemove();                                     //show error if remove error
-
+    void SetVectorValue();                                  //set vector that we will use to create 3d object
 
 
 signals:
@@ -41,6 +41,8 @@ private slots:
     void on_butt_show_clicked();
 
 private:
+    //std::vector<std::vector<double> > _vector_3d(100,std::vector<double >(3));       //vector that we send to form_3dmodelobject form to create 3d model
+   std::vector<std::vector<double> > _vector_3d;
     form_3dmodelshow *Form_3dModel;
     Form_Add_Object *Form_Add;
     QSqlDatabase *db= new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"));   //connect to QPSQL;
