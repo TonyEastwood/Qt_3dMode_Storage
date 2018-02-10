@@ -21,13 +21,13 @@ signals:
 
 public slots:
 public:
-double scale_x=3;
-double scale_y=3;
-double scale_z=3;
-double rotate_y=0;
-double rotate_x=0;
-double rotate_z=0;
-std::vector<std::vector<double> > vector_3d;
+    double scale_x=3;                                       //that need to zoom in or zoom out
+    double scale_y=3;                                       //that need to zoom in or zoom out
+    double scale_z=3;                                       //that need to zoom in or zoom out
+    double rotate_y=0;                                      //that need for rotate Object
+    double rotate_x=0;                                      //that need for rotate Object
+    double rotate_z=0;                                      //that need for rotate Object
+    std::vector<std::vector<double> > vector_3d;            //vector that consist all vectors that we will draw
 };
 
 #endif // OPENGLSHOW_H

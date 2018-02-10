@@ -45,3 +45,5 @@ FORMS += \
     form_3dmodelshow.ui
 
 DISTFILES +=
+
+RESOURCES +=

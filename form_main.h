@@ -35,16 +35,14 @@ private slots:
     void DisplayCountObject();                              //Update quantity objects in lcdNumeric
     void on_butt_remove_clicked();                          //remove selected object
     void on_butt_create_clicked();                          //open new form for create 3d object
-
-    void on_combo_objectlist_activated();
-
-    void on_butt_show_clicked();
+    void on_combo_objectlist_activated();                   //when we select item from ComboBox
+    void on_butt_show_clicked();                            //open 3D_model form to show 3d object
+    void on_butt_update_clicked();                          //update data in ComboBox, Count and label that show object name
 
 private:
-    //std::vector<std::vector<double> > _vector_3d(100,std::vector<double >(3));       //vector that we send to form_3dmodelobject form to create 3d model
-   std::vector<std::vector<double> > _vector_3d;
-    form_3dmodelshow *Form_3dModel;
-    Form_Add_Object *Form_Add;
+   std::vector<std::vector<double> > _vector_3d;            //vector point that need to draw 3D Object in Form_3dModel
+    form_3dmodelshow *Form_3dModel;                         //Form for Draw 3D object
+    Form_Add_Object *Form_Add;                              //Form for add new objects
     QSqlDatabase *db= new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"));   //connect to QPSQL;
     int id=0;                                           //user id
     Ui::Form_main *ui;
