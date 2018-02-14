@@ -6,8 +6,7 @@ Then input coords the first point and the point that will link with current.
 Example:
 
 x	|	y	|	z	|	x2	|	y2	|	z2	|
-----------------------------------------------
-0	|	0	|	0	|	1	|	1	|	1	|
+0	|	0	|	0	|	1 	|	1	  |	1	  |
 
 That mean point(0,0,0) will be connected with point(1,1,1) and when you click "show model" you'll see line.
 
