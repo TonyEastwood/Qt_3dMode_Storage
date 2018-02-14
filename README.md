@@ -18,10 +18,13 @@ The first of all you must have installed packages for work with postgresql datab
 1. Open Qt_3DModel(Linux) or Qt_3DModel.exe (Windows) then you'll see Log In form:
 ![Log_In_Form](https://github.com/TonyEastwood/Qt_3dMode_Storage/blob/master/img/1.jpg)
 2. Input your username and password. If you don't have any account then try input following:
+
 username: net
+
 password: net3
 
 3. Then the Main form will be opened:
+
 ![Main_Form](https://github.com/TonyEastwood/Qt_3dMode_Storage/blob/master/img/2.jpg)
 
 You'll see the next one:
