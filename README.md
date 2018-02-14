@@ -28,15 +28,23 @@ password: net3
 ![Main_Form](https://github.com/TonyEastwood/Qt_3dMode_Storage/blob/master/img/2.jpg)
 
 You'll see the next one:
+
 a) Quantity objects that your account have at the moment;
+
 b) Name that has the currently selected model;
+
 c) Object list - you can choose your model from list, if quantity more than zero;
+
 d) Open form for model create;	(see item 4. )
+
 e) Show 3D model that you choose from Objects list;
+
 f) Remove 3D model that you choose from Objects list;
+
 g) Update data on Main form ( if you added model, but can't see it)
 
 4. 3D model creation:
+
 ![Form_Create](https://github.com/TonyEastwood/Qt_3dMode_Storage/blob/master/img/3.jpg)
 a) Input name for your model ( default - object)
 b) Add row that appropriate quantity edge that your model will have.
