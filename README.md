@@ -46,17 +46,27 @@ g) Update data on Main form ( if you added model, but can't see it)
 4. 3D model creation:
 
 ![Form_Create](https://github.com/TonyEastwood/Qt_3dMode_Storage/blob/master/img/3.jpg)
+
 a) Input name for your model ( default - object)
+
 b) Add row that appropriate quantity edge that your model will have.
+
 c) Enter the coords of pairs of points that will linked.
+
 (if you leave empty cells, that mean coords will assign as zero)
+
 d) Click "Submit" to add it to database.
 
 5. On main form just click "Update" to see changes.
+
 ![Form_Update](https://github.com/TonyEastwood/Qt_3dMode_Storage/blob/master/img/4.jpg)
+
 6. Then choose model from your list and click "Show 3D model" to see it in separate window.
+
 ![Show_Model](https://github.com/TonyEastwood/Qt_3dMode_Storage/blob/master/img/5.jpg)
+
 Also you can rotate, do zoom in and zoom out model, for your convenience;
+
 ![Zoom_Out](https://github.com/TonyEastwood/Qt_3dMode_Storage/blob/master/img/6.jpg)
 
 
