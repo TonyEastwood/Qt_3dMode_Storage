@@ -25,18 +25,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        form_log_in.cpp \
-    form_main.cpp \
-    form_add_object.cpp \
-    form_3dmodelshow.cpp \
-    openglshow.cpp
+   #     form_log_in.cpp \
+   # form_main.cpp \
+   # form_add_object.cpp \
+   # form_3dmodelshow.cpp \
+   # openglshow.cpp \
+    Source/form_3dmodelshow.cpp \
+    Source/form_add_object.cpp \
+    Source/form_log_in.cpp \
+    Source/form_main.cpp \
+    Source/openglshow.cpp
 
 HEADERS += \
-        form_log_in.h \
-    form_main.h \
-    form_add_object.h \
-    form_3dmodelshow.h \
-    openglshow.h
+      #  form_log_in.h \
+   # form_main.h \
+    #form_add_object.h \
+   # form_3dmodelshow.h \
+   # openglshow.h \
+    Headers/form_3dmodelshow.h \
+    Headers/form_3dmodelshow.h \
+    Headers/form_add_object.h \
+    Headers/form_log_in.h \
+    Headers/form_main.h \
+    Headers/openglshow.h
 
 FORMS += \
         form_log_in.ui \

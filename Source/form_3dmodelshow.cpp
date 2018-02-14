@@ -1,4 +1,4 @@
-#include "form_3dmodelshow.h"
+#include "../Headers/form_3dmodelshow.h"
 #include "ui_form_3dmodelshow.h"
 
 form_3dmodelshow::form_3dmodelshow(QWidget *parent) :

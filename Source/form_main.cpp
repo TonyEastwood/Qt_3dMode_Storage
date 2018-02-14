@@ -1,4 +1,4 @@
-#include "form_main.h"
+#include "../Headers/form_main.h"
 #include "ui_form_main.h"
 #define BASE_NAME "bwowjxtm"
 #define SERVER_NAME "dumbo.db.elephantsql.com"

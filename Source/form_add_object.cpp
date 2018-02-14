@@ -1,4 +1,4 @@
-#include "form_add_object.h"
+#include "../Headers/form_add_object.h"
 #include "ui_form_add_object.h"
 #define BASE_NAME "bwowjxtm"
 #define SERVER_NAME "dumbo.db.elephantsql.com"

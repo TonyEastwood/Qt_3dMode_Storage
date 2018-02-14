@@ -1,4 +1,4 @@
-#include "openglshow.h"
+#include "../Headers/openglshow.h"
 
 OpenGlShow::OpenGlShow(QWidget *parent) : QOpenGLWidget(parent)
 {
