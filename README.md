@@ -4,6 +4,7 @@ You add new row (quantity row appropriate quantity edge that your model should h
 Then input coords the first point and the point that will link with current.
 
 Example:
+
 x	|	y	|	z	|	x2	|	y2	|	z2	|
 ----------------------------------------------
 0	|	0	|	0	|	1	|	1	|	1	|
