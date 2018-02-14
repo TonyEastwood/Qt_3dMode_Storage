@@ -2,6 +2,7 @@ That app let you opportunity to create your 3D model by points. The first of all
 3D model creation process:
 You add new row (quantity row appropriate quantity edge that your model should have)
 Then input coords the first point and the point that will link with current.
+
 Example:
 x	|	y	|	z	|	x2	|	y2	|	z2	|
 ----------------------------------------------
@@ -11,6 +12,7 @@ That mean point(0,0,0) will be connected with point(1,1,1) and when you click "s
 
 
 Short guide:
+
 The first of all you must have installed packages for work with postgresql database on your device.
 1. Open Qt_3DModel(Linux) or Qt_3DModel.exe (Windows) then you'll see Log In form:
 ![Log_In_Form](https://github.com/TonyEastwood/Qt_3dMode_Storage/blob/master/img/1.jpg)
